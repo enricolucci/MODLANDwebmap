@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([1450470.645400, 4697668.530785, 2131046.624867, 5398163.611340], map.getSize());
+map.getView().fit([1475306.593026, 4825544.707117, 2086172.366760, 5293493.707715], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -437,7 +437,7 @@ var Title = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
         titleElement.className = 'top-right-title ol-control';
-        titleElement.innerHTML = '<h2 class="project-title">MODLAND web map</h2>';
+        titleElement.innerHTML = '<h2 class="project-title">MODLAND web map </h2>';
         return titleElement;
     })(),
     target: 'top-right-container'
@@ -445,6 +445,44 @@ var Title = new ol.control.Control({
 map.addControl(Title)
     
 //abstract
+
+var Abstract = new ol.control.Control({
+    element: (() => {
+        var titleElement = document.createElement('div');
+        titleElement.className = 'top-right-abstract ol-control';
+        titleElement.id = 'abstract';
+
+        var linkElement = document.createElement('a');
+
+        if (223 > 240) {
+            linkElement.setAttribute("onmouseenter", "showAbstract()");
+            linkElement.setAttribute("onmouseleave", "hideAbstract()");
+            linkElement.innerHTML = 'i';
+
+            window.hideAbstract = function() {
+                linkElement.classList.add("project-abstract");
+                linkElement.classList.remove("project-abstract-uncollapsed");
+                linkElement.innerHTML = 'i';
+            }
+
+            window.showAbstract = function() {
+                linkElement.classList.remove("project-abstract");
+                linkElement.classList.add("project-abstract-uncollapsed");
+                linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br />';
+            }
+
+            hideAbstract();
+        } else {
+            linkElement.classList.add("project-abstract-uncollapsed");
+            linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br />';
+        }
+
+        titleElement.appendChild(linkElement);
+        return titleElement;
+    })(),
+    target: 'top-right-container'
+});
+map.addControl(Abstract);
 
 
 //geolocate
