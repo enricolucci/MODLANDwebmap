@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([1450470.645400, 4697668.530785, 2131046.624867, 5398163.611340], map.getSize());
+map.getView().fit([1427188.880127, 4814794.190108, 2008608.361248, 5334229.724341], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -169,7 +169,6 @@ function onPointerMove(evt) {
     }
     var pixel = map.getEventPixel(evt.originalEvent);
     var coord = evt.coordinate;
-    var popupField;
     var currentFeature;
     var currentLayer;
     var currentFeatureKeys;
@@ -190,7 +189,6 @@ function onPointerMove(evt) {
             if (clusteredFeatures) {
 				clusterLength = clusteredFeatures.length;
 			}
-            var clusterFeature;
             if (typeof clusteredFeatures !== "undefined") {
                 if (doPopup) {
                     for(var n=0; n<clusteredFeatures.length; n++) {
@@ -314,7 +312,6 @@ function onSingleClickFeatures(evt) {
     }
     var pixel = map.getEventPixel(evt.originalEvent);
     var coord = evt.coordinate;
-    var popupField;
     var currentFeature;
     var currentFeatureKeys;
     var clusteredFeatures;
@@ -437,7 +434,7 @@ var Title = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
         titleElement.className = 'top-right-title ol-control';
-        titleElement.innerHTML = '<h2 class="project-title">MODLAND web map </h2>';
+        titleElement.innerHTML = '<h2 class="project-title">MODLAND - Webmap </h2>';
         return titleElement;
     })(),
     target: 'top-right-container'
@@ -454,7 +451,7 @@ var Abstract = new ol.control.Control({
 
         var linkElement = document.createElement('a');
 
-        if (223 > 240) {
+        if (356 > 240) {
             linkElement.setAttribute("onmouseenter", "showAbstract()");
             linkElement.setAttribute("onmouseleave", "hideAbstract()");
             linkElement.innerHTML = 'i';
@@ -468,13 +465,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function() {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br />';
+                linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.14998306<br />';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br />';
+            linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.14998306<br />';
         }
 
         titleElement.appendChild(linkElement);
@@ -929,11 +926,14 @@ map.addControl(bottomAttribution);
 
 var attributionList = document.createElement('li');
 attributionList.innerHTML = `
-	<a href="https://github.com/tomchadwin/qgis2web">qgis2web</a> &middot;
+	<a href="https://github.com/qgis2web/qgis2web">qgis2web</a> &middot;
 	<a href="https://openlayers.org/">OpenLayers</a> &middot;
 	<a href="https://qgis.org/">QGIS</a>	
 `;
-bottomAttribution.element.appendChild(attributionList);
+var bottomAttributionUl = bottomAttribution.element.querySelector('ul');
+if (bottomAttributionUl) {
+  bottomAttribution.element.insertBefore(attributionList, bottomAttributionUl);
+}
 
 
 // Disable "popup on hover" or "highlight on hover" if ol-control mouseover
