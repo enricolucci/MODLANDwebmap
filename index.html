@@ -45,10 +45,84 @@
             margin: 0;
         }
         </style>
-        <title>MODLAND - WebMap </title>
-    </head>
+        <title>MODLAND - Webmap </title>
+    
+<style>
+  #map { position: relative; }
+</style>
+
+
+<!-- Modern UI styles -->
+<style id="ml-modern-style">
+:root{
+  --ml-bg: rgba(255,255,255,0.78);
+  --ml-border: rgba(10,10,10,0.10);
+  --ml-radius: 12px;
+  --ml-blur: 8px;
+  --ml-shadow: 0 10px 30px rgba(0,0,0,.12);
+  --ml-accent: #0b6cff;
+  --ml-text: #1f2937;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ml-bg: rgba(20,20,20,0.55);
+    --ml-border: rgba(255,255,255,0.14);
+    --ml-text: #e5e7eb;
+  }
+}
+/* Modernized OpenLayers-style control wrapper */
+.ol-control.modern > *{
+  background: var(--ml-bg) !important;
+  backdrop-filter: saturate(115%) blur(var(--ml-blur));
+  -webkit-backdrop-filter: saturate(115%) blur(var(--ml-blur));
+  border: 1px solid var(--ml-border) !important;
+  border-radius: var(--ml-radius) !important;
+  box-shadow: var(--ml-shadow);
+  color: var(--ml-text) !important;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+/* Generic modern button/link */
+.ml-button{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:8px 12px; font-weight:600; text-decoration:none;
+  border-radius: var(--ml-radius);
+}
+.ml-button:hover{ transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.ml-button:focus{ outline: 2px solid var(--ml-accent); outline-offset: 2px; }
+/* Contact card specifics */
+.ml-contact{ line-height:1.25; font-size: 14px; }
+.ml-contact .name{ font-weight:700; }
+.ml-badge{ display:inline-flex; align-items:center; gap:.4rem; padding:2px 8px; border-radius:9999px; border:1px solid var(--ml-border); font-size:12px; }
+/* Make the layer search input feel modern */
+.search-layer-input-search{
+  background: var(--ml-bg) !important;
+  backdrop-filter: saturate(115%) blur(var(--ml-blur));
+  -webkit-backdrop-filter: saturate(115%) blur(var(--ml-blur));
+  border: 1px solid var(--ml-border) !important;
+  border-radius: var(--ml-radius) !important;
+  box-shadow: var(--ml-shadow);
+  color: var(--ml-text) !important;
+}
+.search-layer-input-search:focus{
+  outline: none; border-color: var(--ml-accent) !important;
+  box-shadow: 0 0 0 3px rgba(11,108,255,.20), var(--ml-shadow);
+}
+</style>
+
+</head>
     <body>
         <div id="map">
+
+    <!-- Contact card -->
+<div class="ol-control modern ml-contact-card" style="position:absolute; bottom:10px; right:10px; z-index:1000;">
+  <div class="ml-contact" style="padding:10px 14px;">
+    <div class="name"> Author: Enrico Lucci - PhD</div>
+    <div class="ml-badge"><i class="fas fa-helmet-safety" aria-hidden="true"></i><span>PI ModLand Project</span></div>
+    <div style="margin-top:6px; font-size:90%;">email: <a href="mailto:">enrico.lucci@uniba.it</a></div>
+  </div>
+</div>
+</div>
+
             <div id="popup" class="ol-popup">
                 <a href="#" id="popup-closer" class="ol-popup-closer"></a>
                 <div id="popup-content"></div>
@@ -66,16 +140,6 @@
         <script src="./layers/layers.js" type="text/javascript"></script> 
         <script src="./resources/Autolinker.min.js"></script>
         <script src="./resources/qgis2web.js"></script>
-
-<!-- References button -->
-    <div class="ol-control" style="position: absolute; top: 300px; right: 10px; z-index: 1000;">
-      <a href="Webmap%20references.htm"
-         target="_blank"
-         title="Apri la bibliografia (HTML)"
-         style="display:inline-block; padding:6px 10px; text-decoration:none; font-weight:600; border-radius:4px;">
-        📚 Webmap references
-      </a>
-    </div>
     </body>
 <div id="logo" style="position: absolute; bottom: 50px; left: 50px; z-index: 1000;">
     <img src="Logo_PNRR_MUR.png" alt="Logo" style="width: 500px; height: auto; opacity: 0.5;">
