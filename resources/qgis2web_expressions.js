@@ -179,8 +179,8 @@ function fnc_coalesce(values, context) {
 };
 
 function fnc_if(values, context) {
-    return false;
-};
+    return values[0] ? values[1] : values[2];
+}
 
 function fnc_aggregate(values, context) {
     return false;
@@ -763,3 +763,30 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
+
+
+
+function exp_Casestudies_3rule0_eval_expression(context) {
+    // "Invest." = 'Arch. exc.'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.get('Invest.')  == 'Arch. exc.');
+    } else {
+        return (feature.get('Invest.')  == 'Arch. exc.');
+    }
+}
+
+
+function exp_Casestudies_3rule1_eval_expression(context) {
+    // "Invest." = 'Surf. coll./Other'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.get('Invest.')  == 'Surf. coll./Other');
+    } else {
+        return (feature.get('Invest.')  == 'Surf. coll./Other');
+    }
+}
