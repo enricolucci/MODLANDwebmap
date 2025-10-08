@@ -480,13 +480,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function() {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (Version v2). Zenodo. https://doi.org/10.5281/zenodo.14998305 />';
+                linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). Spatial dataset of the project ModLand - Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE) in Southeast Italy [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17292750';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (Version v2). Zenodo. https://doi.org/10.5281/zenodo.14998305 />';
+            linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). Spatial dataset of the project ModLand - Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE) in Southeast Italy [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17292750';
         }
 
         titleElement.appendChild(linkElement);
@@ -1152,3 +1152,4 @@ document.addEventListener('DOMContentLoaded', function() {
         bottomRightContainerDiv.appendChild(attributionControl);
 
     }
+
