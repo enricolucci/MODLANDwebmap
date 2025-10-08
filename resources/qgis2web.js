@@ -480,13 +480,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function() {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.14998306<br />';
+                linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (Version v2). Zenodo. https://doi.org/10.5281/zenodo.14998305 />';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.14998306<br />';
+            linkElement.innerHTML = 'Spatial dataset of the project ModLand - <br />Granted MUR_SoE - Next Generation EU Host Institution: DIRIUM, University of Bari Aldo Moro. <br />Open sites dating to the Copper (4th - 3rd mill. BCE) and Bronze Age (2nd mill. BCE). <br /><br />Citation<br />Enrico Lucci. (2025). enricolucci/MODLANDwebmap: <br />MODLAND-webmap (Version v2). Zenodo. https://doi.org/10.5281/zenodo.14998305 />';
         }
 
         titleElement.appendChild(linkElement);
@@ -1150,4 +1150,5 @@ document.addEventListener('DOMContentLoaded', function() {
     var attributionControl = document.getElementsByClassName('bottom-attribution')[0];
     if (attributionControl) {
         bottomRightContainerDiv.appendChild(attributionControl);
+
     }
